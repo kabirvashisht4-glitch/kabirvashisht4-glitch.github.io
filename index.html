@@ -11,21 +11,21 @@
 <style>
 /* Layout: one 720px column. Night-sky banner on top, avatar overlapping it, then card sections. Single committed ink-black theme; moonlight white is the only accent. */
 :root {
-  --bg: #0A0F1F;
-  --panel: #10172D;
-  --panel-2: #172039;
+  --bg: #06080D;
+  --panel: #0C0F18;
+  --panel-2: #121624;
   --fg: #E7EAF3;
-  --fg-2: #A3ACC6;
-  --fg-3: #6A7493;
-  --rule: #222C49;
-  --grid: rgba(163,172,198,.22);
+  --fg-2: #9DA4B8;
+  --fg-3: #636A80;
+  --rule: #1B2030;
+  --grid: rgba(157,164,184,.18);
   --moon: #F2EAD3;
   --petal: 242,234,211;
   --tone: rgba(231,234,243,.06);
   --ok: #8FD3A8;
   --wip: #E7C27A;
-  --idle: #6A7493;
-  --h0: #18213B; --h1: #2E3D6B; --h2: #4D64A6; --h3: #8DA2DA; --h4: #F2EAD3;
+  --idle: #636A80;
+  --h0: #121726; --h1: #26335C; --h2: #4D64A6; --h3: #8DA2DA; --h4: #F2EAD3;
   --display: "Dela Gothic One", "Arial Black", Impact, sans-serif;
   --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Martian Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -746,7 +746,7 @@ cite { display: block; margin-top: 10px; font: 400 12px/1 var(--mono); font-styl
     var W = Math.max(1, Math.round(r.width)), H = Math.max(1, Math.round(r.height));
     if (cv.width !== W * dpr) { cv.width = W * dpr; cv.height = H * dpr; }
     var x = cv.getContext("2d"); x.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var ink = "#E7EAF3", acc = "#F2EAD3", dim = "#25304F", bg = "#090D1B";
+    var ink = "#E7EAF3", acc = "#F2EAD3", dim = "#1E2537", bg = "#05070C";
     x.fillStyle = bg; x.fillRect(0, 0, W, H);
     x.fillStyle = "rgba(255,255,255,.07)";
     for (var yy = 4; yy < H; yy += 7) for (var xx = (yy / 7 % 2) * 3.5 + 4; xx < W; xx += 7) { x.beginPath(); x.arc(xx, yy, 1, 0, 7); x.fill(); }
