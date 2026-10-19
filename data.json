@@ -1,8 +1,8 @@
 {
- "updated": "2026-10-18",
- "total": 887,
- "merged": 36,
- "open": 26,
+ "updated": "2026-10-19",
+ "total": 894,
+ "merged": 37,
+ "open": 25,
  "issues": 72,
  "orgs": {
   "org:NVIDIA-NeMo": {
@@ -10,8 +10,8 @@
    "open": 8
   },
   "org:json-schema-org": {
-   "merged": 10,
-   "open": 1
+   "merged": 11,
+   "open": 0
   },
   "repo:sktime/skpro": {
    "merged": 6,
@@ -284,6 +284,6 @@
   "2026-10-15": 2,
   "2026-10-16": 2,
   "2026-10-17": 1,
-  "2026-10-18": 9
+  "2026-10-18": 16
  }
 }
