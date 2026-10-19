@@ -138,6 +138,11 @@ kbd { font: 500 10px/1 var(--mono); border: 1px solid var(--rule); border-radius
 }
 .avatar img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; }
 .avatar .mono { font-family: var(--display); font-size: 30px; color: var(--moon); }
+.id-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; padding-bottom: 8px; }
+.id-meta .clock { padding-bottom: 0; }
+.views { display: inline-flex; align-items: center; gap: 7px; font: 500 12px/1 var(--mono); color: var(--fg-2); padding: 6px 10px; border: 1px solid var(--rule); border-radius: 999px; background: var(--panel); font-variant-numeric: tabular-nums; }
+.views svg { width: 14px; height: 14px; }
+.views b { color: var(--fg); font-weight: 500; }
 .clock { font: 500 13px/1 var(--mono); color: var(--fg-2); font-variant-numeric: tabular-nums; padding-bottom: 8px; display: inline-flex; gap: 8px; align-items: center; }
 .clock b { color: var(--fg); font-weight: 500; }
 .hero-body { padding: 18px 4px 0; display: grid; gap: 16px; }
@@ -336,7 +341,10 @@ cite { display: block; margin-top: 10px; font: 400 12px/1 var(--mono); font-styl
         <img src="https://unavatar.io/x/KabirVashi58127" alt="Kabir Vashisht" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://avatars.githubusercontent.com/u/228213360?v=4&s=240'}else{this.remove()}">
         <span class="mono" aria-hidden="true">KV</span>
       </div>
-      <span class="clock">India <b id="clock">--:--:--</b></span>
+      <div class="id-meta">
+        <span class="views" id="views" title="Profile views" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><b id="viewsN">0</b> views</span>
+        <span class="clock">India <b id="clock">--:--:--</b></span>
+      </div>
     </div>
     <div class="hero-body">
       <div class="name-row">
@@ -877,6 +885,21 @@ cite { display: block; margin-top: 10px; font: 400 12px/1 var(--mono); font-styl
       });
     }, { rootMargin: "-40% 0px -55% 0px" });
     links.forEach(function (a) { var t = document.querySelector(a.getAttribute("href")); if (t) io.observe(t); });
+  })();
+
+  /* profile views: counted once per visit (abacus counter, no account needed) */
+  (function () {
+    if (location.protocol.indexOf("http") !== 0) return;
+    var el = document.getElementById("views"), n = document.getElementById("viewsN");
+    var seen = false;
+    try { seen = sessionStorage.getItem("kv-viewed") === "1"; } catch (e) {}
+    var url = "https://abacus.jasoncameron.dev/" + (seen ? "get" : "hit") + "/kabirv-me/views";
+    fetch(url).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (j) {
+      if (typeof j.value !== "number" || j.value < 0) return;
+      try { sessionStorage.setItem("kv-viewed", "1"); } catch (e) {}
+      n.textContent = j.value.toLocaleString("en-IN");
+      el.hidden = false;
+    }).catch(function () {});
   })();
 
   /* command palette */
