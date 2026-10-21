@@ -1,6 +1,6 @@
 # kabirv.me
 
-Personal portfolio of **Kabir Vashisht**, a CS + AI student and open-source contributor.
+Personal portfolio of **Kabir Vashisht**, an open-source contributor working across AI and systems.
 
 Live at **[kabirv.me](https://kabirv.me)**
 
