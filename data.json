@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-02",
+ "updated": "2026-11-03",
  "total": 915,
  "merged": 38,
- "open": 25,
+ "open": 23,
  "issues": 73,
  "orgs": {
   "org:NVIDIA-NeMo": {
    "merged": 10,
-   "open": 8
+   "open": 6
   },
   "org:json-schema-org": {
    "merged": 11,
